@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar + Grid</title>
+    <script src="calendar.js"></script>
+    <style>
+      #App {
+        /* grid */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 3rem;
+        grid-auto-rows: 6rem;
+
+        /* style */
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        border: 1px solid black;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .calendar-cell {
+        border: 1px solid black;
+        padding: 0.5rem;
+      }
+
+      .past-month,
+      .next-month {
+        color: gray;
+      }
+
+      .sun {
+        color: red;
+      }
+
+      .sat {
+        color: blue;
+      }
+
+      .past-month.sun {
+        color: pink;
+      }
+
+      .next-month.sat {
+        color: lightblue;
+      }
+
+      .today {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="App"></div>
+  </body>
+  <script>
+    renderCalendar(document.querySelector('#App'));
+  </script>
+</html>
