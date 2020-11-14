@@ -41,7 +41,7 @@ const getCalendarHTML = () => {
     calendarContents.push(
       html`<div
         class="
-          ${d % 7 == 0 ? 'sun' : ''}
+          ${d % 7 === 0 ? 'sun' : ''}
           calendar-cell
           past-month
         "
@@ -57,14 +57,14 @@ const getCalendarHTML = () => {
     calendarContents.push(
       html`<div
         class="
-          ${today.getDate() == d + 1 ? 'today' : ''}
-          ${(thisMonthFirstDate.getDay() + d) % 7 == 0 ? 'sun' : ''}
-          ${(thisMonthFirstDate.getDay() + d) % 7 == 6 ? 'sat' : ''}
+          ${today.getDate() === d + 1 ? 'today' : ''}
+          ${(thisMonthFirstDate.getDay() + d) % 7 === 0 ? 'sun' : ''}
+          ${(thisMonthFirstDate.getDay() + d) % 7 === 6 ? 'sat' : ''}
           calendar-cell
           this-month
         "
       >
-        ${d + 1} ${today.getDate() == d + 1 ? '(today)' : ''}
+        ${d + 1} ${today.getDate() === d + 1 ? '(today)' : ''}
       </div>`
     );
   }
@@ -75,7 +75,7 @@ const getCalendarHTML = () => {
     calendarContents.push(
       html`<div
         class="
-          ${(nextMonthFirstDate.getDay() + d) % 7 == 6 ? 'sat' : ''}
+          ${(nextMonthFirstDate.getDay() + d) % 7 === 6 ? 'sat' : ''}
           calendar-cell
           next-month
         "
