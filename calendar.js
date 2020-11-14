@@ -64,7 +64,7 @@ const getCalendarHTML = () => {
           this-month
         "
       >
-        ${d + 1} ${today.getDate() === d + 1 ? '(today)' : ''}
+        ${d + 1} ${today.getDate() === d + 1 ? ' today' : ''}
       </div>`
     );
   }
