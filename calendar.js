@@ -48,7 +48,8 @@ const getCalendarHTML = () => {
       >
         ${lastMonthLastDate.getMonth() + 1}/${lastMonthLastDate.getDate() -
         thisMonthFirstDate.getDay() +
-        d}
+        d +
+        1}
       </div>`
     );
   }
