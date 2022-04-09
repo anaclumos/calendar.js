@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>JavaScript Calendar</title>
     <script src="calendar.js"></script>
     <script src="navigator.js"></script>
@@ -23,8 +26,10 @@
 
       * {
         box-sizing: border-box;
-        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-          Pretendard, system-ui, -system-ui, sans-serif, 'Apple Color Emoji';
+        font-family: ui-sans-serif, -apple-system,
+          BlinkMacSystemFont, 'Apple SD Gothic Neo',
+          Pretendard, system-ui, -system-ui, sans-serif,
+          'Apple Color Emoji';
       }
 
       #navigator {
@@ -111,7 +116,13 @@
     <div id="calendar"></div>
   </body>
   <script>
-    renderNavigator(document.getElementById('navigator'), new Date())
-    renderCalendar(document.getElementById('calendar'), new Date())
+    renderNavigator(
+      document.getElementById('navigator'),
+      new Date()
+    )
+    renderCalendar(
+      document.getElementById('calendar'),
+      new Date()
+    )
   </script>
 </html>
