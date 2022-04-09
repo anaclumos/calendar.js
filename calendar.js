@@ -3,8 +3,8 @@ const html = (s, ...args) => s.map((ss, i) => `${ss}${args[i] || ''}`).join('')
 const NUMBER_OF_DAYS_IN_WEEK = 7
 const NAME_OF_DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 const LONG_NAME_OF_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const renderCalendar = ($target) => {
-  let html = getCalendarHTML()
+const renderCalendar = ($target, today) => {
+  let html = getCalendarHTML(today)
   // minify html
   html = html.replace(/\n/g, '')
   // replace multiple spaces with single space
@@ -13,7 +13,6 @@ const renderCalendar = ($target) => {
 }
 
 const processDate = (day) => {
-  const date = day.getDate()
   const month = day.getMonth()
   const year = day.getFullYear()
   return {
@@ -24,8 +23,7 @@ const processDate = (day) => {
   }
 }
 
-const getCalendarHTML = () => {
-  let today = new Date()
+const getCalendarHTML = (today) => {
   let { lastMonthLastDate, thisMonthFirstDate, thisMonthLastDate, nextMonthFirstDate } =
     processDate(today)
   let calendarContents = []
