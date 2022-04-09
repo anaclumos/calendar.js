@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar + Grid</title>
+    <title>JavaScript Calendar</title>
     <script src="calendar.js"></script>
     <style>
-      #App {
+      @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+      #calendar {
         /* grid */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -14,48 +15,47 @@
         grid-auto-rows: 6rem;
 
         /* style */
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+          Pretendard, system-ui, -system-ui, sans-serif, 'Apple Color Emoji';
         border: 1px solid black;
-        max-width: 720px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+
+        overflow: scroll;
       }
 
       .calendar-cell {
         border: 1px solid black;
         padding: 0.5rem;
+        min-width: 6rem;
       }
 
       .past-month,
       .next-month {
         color: gray;
+        background-color: #e4e4e4;
       }
 
       .sun {
-        color: red;
+        color: rgb(159, 0, 0);
       }
 
       .sat {
-        color: blue;
-      }
-
-      .past-month.sun {
-        color: pink;
-      }
-
-      .next-month.sat {
-        color: lightblue;
+        color: rgb(0, 0, 195);
       }
 
       .today {
-        color: #e5732f;
+        color: #4285f4;
+        background-color: #cadcff;
       }
     </style>
   </head>
   <body>
-    <div id="App"></div>
+    <div id="navigator"></div>
+    <div id="calendar"></div>
   </body>
   <script>
-    renderCalendar(document.querySelector('#App'));
+    renderCalendar(document.querySelector('#calendar'))
   </script>
 </html>
