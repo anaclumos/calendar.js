@@ -10,10 +10,59 @@
     <style>
       @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+      /* variables */
+      :root {
+        --color-gray: gray;
+        --color-background-gray: #e4e4e4;
+        --color-black: black;
+        --color-highlight: #4285f4;
+        --color-background-highlight: #cadcff;
+        --color-deep-blue: #0d47a1;
+        --color-deep-red: #d32f2f;
+      }
+
       * {
         box-sizing: border-box;
         font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
           Pretendard, system-ui, -system-ui, sans-serif, 'Apple Color Emoji';
+      }
+
+      #navigator {
+        display: flex;
+      }
+
+      .month-display {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        width: 15rem;
+      }
+
+      .move-month-button {
+        text-align: center;
+        margin: auto;
+        height: 4rem;
+        width: 12rem;
+        border-radius: 0.5rem;
+        border: 0;
+        padding: 1rem;
+        font-size: 0.8rem;
+        background-color: inherit;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .move-month-button:hover {
+        background-color: var(--color-background-highlight);
+        cursor: pointer;
+        /* animation */
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .move-month-button:active,
+      .move-month-button:focus {
+        background-color: var(--color-background-gray);
+        /* animation */
+        transition: background-color 0.2s ease-in-out;
       }
 
       #calendar {
@@ -23,7 +72,7 @@
         grid-template-rows: 3rem;
         grid-auto-rows: 6rem;
 
-        border: 1px solid black;
+        border: 1px solid var(--color-black);
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
@@ -32,28 +81,28 @@
       }
 
       .calendar-cell {
-        border: 1px solid black;
+        border: 1px solid var(--color-black);
         padding: 0.5rem;
         min-width: 6rem;
       }
 
       .past-month,
       .next-month {
-        color: gray;
-        background-color: #e4e4e4;
+        color: var(--color-gray);
+        background-color: var(--color-background-gray);
       }
 
       .sun {
-        color: rgb(159, 0, 0);
+        color: var(--color-deep-red);
       }
 
       .sat {
-        color: rgb(0, 0, 195);
+        color: var(--color-deep-blue);
       }
 
       .today {
-        color: #4285f4;
-        background-color: #cadcff;
+        color: var(--color-highlight);
+        background-color: var(--color-background-highlight);
       }
     </style>
   </head>
