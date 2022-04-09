@@ -1,8 +1,8 @@
-const html = (s, ...args) => s.map((ss, i) => `${ss}${args[i] || ''}`).join('')
-
 const NUMBER_OF_DAYS_IN_WEEK = 7
 const NAME_OF_DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 const LONG_NAME_OF_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const ACTUAL_TODAY = new Date()
+
 const renderCalendar = ($target, today) => {
   let html = getCalendarHTML(today)
   // minify html
@@ -34,11 +34,12 @@ const getCalendarHTML = (today) => {
     )
   }
 
-  for (let d = 0; d < thisMonthFirstDate.getDay(); d++) {
+  for (let d = 0; d < (thisMonthFirstDate.getDay() > 0 ? thisMonthFirstDate.getDay() : NUMBER_OF_DAYS_IN_WEEK); d++) {
     calendarContents.push(
       html`<div
         class="
           ${d % 7 === 0 ? 'sun' : ''}
+          ${d % 7 === 6 ? 'sat' : ''}
           calendar-cell
           past-month
         "
@@ -46,7 +47,9 @@ const getCalendarHTML = (today) => {
         ${lastMonthLastDate.getMonth() + 1}/${lastMonthLastDate.getDate() -
         thisMonthFirstDate.getDay() +
         d +
-        1}
+        1
+        - (thisMonthFirstDate.getDay() > 0 ? 0 : NUMBER_OF_DAYS_IN_WEEK)
+        }
       </div>`
     )
   }
@@ -55,14 +58,14 @@ const getCalendarHTML = (today) => {
     calendarContents.push(
       html`<div
         class="
-          ${today.getDate() === d + 1 ? 'today' : ''}
+          ${today.getDate() === d + 1 && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? 'today' : ''}
           ${(thisMonthFirstDate.getDay() + d) % 7 === 0 ? 'sun' : ''}
           ${(thisMonthFirstDate.getDay() + d) % 7 === 6 ? 'sat' : ''}
           calendar-cell
           this-month
         "
       >
-        ${today.getMonth() + 1}/${d + 1} ${today.getDate() === d + 1 ? ' today' : ''}
+        ${today.getMonth() + 1}/${d + 1} ${today.getDate() === d + 1 && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? ' today' : ''}
       </div>`
     )
   }
