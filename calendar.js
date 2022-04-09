@@ -58,14 +58,14 @@ const getCalendarHTML = (today) => {
     calendarContents.push(
       html`<div
         class="
-          ${today.getDate() === d + 1 && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? 'today' : ''}
+          ${today.getDate() === d + 1 && ACTUAL_TODAY.getFullYear() === today.getFullYear() && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? 'today' : ''}
           ${(thisMonthFirstDate.getDay() + d) % 7 === 0 ? 'sun' : ''}
           ${(thisMonthFirstDate.getDay() + d) % 7 === 6 ? 'sat' : ''}
           calendar-cell
           this-month
         "
       >
-        ${today.getMonth() + 1}/${d + 1} ${today.getDate() === d + 1 && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? ' today' : ''}
+        ${today.getMonth() + 1}/${d + 1} ${today.getDate() === d + 1 && ACTUAL_TODAY.getFullYear() === today.getFullYear() && ACTUAL_TODAY.getDate() === today.getDate() && ACTUAL_TODAY.getMonth() === today.getMonth() ? ' today' : ''}
       </div>`
     )
   }
